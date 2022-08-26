@@ -1,0 +1,233 @@
+BL51 BANKED LINKER/LOCATER V6.22                                                        08/26/2022  08:34:52  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22, INVOKED BY:
+D:\KEIL5\C51\BIN\BL51.EXE .\Objects\main.obj, .\Objects\I2C.obj, .\Objects\send.obj TO .\Objects\project PRINT (.\Listin
+>> gs\project.m51) RAMSIZE (256)
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  .\Objects\main.obj (MAIN)
+  .\Objects\I2C.obj (I2C)
+  .\Objects\send.obj (SEND)
+  D:\KEIL5\C51\LIB\C51S.LIB (?C_STARTUP)
+  D:\KEIL5\C51\LIB\C51S.LIB (?C?COPY)
+  D:\KEIL5\C51\LIB\C51S.LIB (?C?CLDPTR)
+
+
+LINK MAP OF MODULE:  .\Objects\project (MAIN)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            DATA    0008H     0011H     UNIT         _DATA_GROUP_
+            IDATA   0019H     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+            CODE    0003H     010FH     UNIT         ?C?LIB_CODE
+            CODE    0112H     0029H     UNIT         ?PR?_I2C_SENDBYTE?I2C
+            CODE    013BH     0023H     UNIT         ?PR?_SENDSTRING?SEND
+            CODE    015EH     001EH     UNIT         ?PR?MAIN?MAIN
+            CODE    017CH     001EH     UNIT         ?PR?I2C_RECEIVEBYTE?I2C
+            CODE    019AH     0018H     UNIT         ?PR?_SENDBYTE?SEND
+            CODE    01B2H     000DH     UNIT         ?CO?MAIN
+            CODE    01BFH     000CH     UNIT         ?PR?I2C_RECEIVEACK?I2C
+            CODE    01CBH     000CH     UNIT         ?C_C51STARTUP
+            CODE    01D7H     000AH     UNIT         ?PR?_I2C_SENDACK?I2C
+            CODE    01E1H     0009H     UNIT         ?PR?I2C_START?I2C
+            CODE    01EAH     0007H     UNIT         ?PR?I2C_STOP?I2C
+
+
+
+OVERLAY MAP OF MODULE:   .\Objects\project (MAIN)
+
+
+SEGMENT                           DATA_GROUP 
+  +--> CALLED SEGMENT           START    LENGTH
+-----------------------------------------------
+?C_C51STARTUP                   -----    -----
+  +--> ?PR?MAIN?MAIN
+
+?PR?MAIN?MAIN                   0008H    000DH
+  +--> ?CO?MAIN
+  +--> ?PR?_SENDSTRING?SEND
+
+BL51 BANKED LINKER/LOCATER V6.22                                                      08/26/2022  08:34:52  PAGE 2
+
+
+?PR?_SENDSTRING?SEND            0015H    0003H
+  +--> ?PR?_SENDBYTE?SEND
+
+?PR?_SENDBYTE?SEND              0018H    0001H
+  +--> ?PR?I2C_START?I2C
+  +--> ?PR?_I2C_SENDBYTE?I2C
+  +--> ?PR?I2C_RECEIVEACK?I2C
+  +--> ?PR?I2C_STOP?I2C
+
+
+
+SYMBOL TABLE OF MODULE:  .\Objects\project (MAIN)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        MAIN
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  C:015EH         PUBLIC        main
+  C:01B2H         SYMBOL        _?ix1000
+  -------         PROC          MAIN
+  -------         DO            
+  D:0008H         SYMBOL        a
+  -------         ENDDO         
+  C:015EH         LINE#         5
+  C:015EH         LINE#         6
+  C:015EH         LINE#         7
+  C:0171H         LINE#         9
+  C:0171H         LINE#         10
+  C:0171H         LINE#         11
+  C:017AH         LINE#         12
+  -------         ENDPROC       MAIN
+  -------         ENDMOD        MAIN
+
+  -------         MODULE        I2C
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:0090H         PUBLIC        P1
+  B:0090H.1       PUBLIC        I2C_SCL
+  C:01E1H         PUBLIC        I2C_Start
+  C:01D7H         PUBLIC        _I2C_SendAck
+  C:0112H         PUBLIC        _I2C_SendByte
+  C:01EAH         PUBLIC        I2C_Stop
+  C:01BFH         PUBLIC        I2C_ReceiveAck
+  B:0090H.0       PUBLIC        I2C_SDA
+  C:017CH         PUBLIC        I2C_ReceiveByte
+  -------         PROC          I2C_START
+  C:01E1H         LINE#         12
+  C:01E1H         LINE#         13
+  C:01E1H         LINE#         14
+  C:01E3H         LINE#         15
+  C:01E5H         LINE#         16
+  C:01E7H         LINE#         17
+  C:01E9H         LINE#         18
+  -------         ENDPROC       I2C_START
+  -------         PROC          I2C_STOP
+  C:01EAH         LINE#         26
+  C:01EAH         LINE#         27
+BL51 BANKED LINKER/LOCATER V6.22                                                      08/26/2022  08:34:52  PAGE 3
+
+
+  C:01EAH         LINE#         28
+  C:01ECH         LINE#         29
+  C:01EEH         LINE#         30
+  C:01F0H         LINE#         32
+  -------         ENDPROC       I2C_STOP
+  -------         PROC          _I2C_SENDBYTE
+  D:0005H         SYMBOL        Byte
+  -------         DO            
+  D:0003H         SYMBOL        i
+  -------         ENDDO         
+  C:0112H         LINE#         40
+  C:0114H         LINE#         41
+  C:0114H         LINE#         43
+  C:0116H         LINE#         44
+  C:0116H         LINE#         45
+  C:0132H         LINE#         46
+  C:0134H         LINE#         47
+  C:0136H         LINE#         49
+  C:013AH         LINE#         50
+  -------         ENDPROC       _I2C_SENDBYTE
+  -------         PROC          I2C_RECEIVEBYTE
+  -------         DO            
+  D:0006H         SYMBOL        i
+  D:0007H         SYMBOL        Byte
+  -------         ENDDO         
+  C:017CH         LINE#         58
+  C:017CH         LINE#         59
+  C:017CH         LINE#         60
+  C:017EH         LINE#         61
+  C:0180H         LINE#         63
+  C:0181H         LINE#         64
+  C:0181H         LINE#         65
+  C:0183H         LINE#         66
+  C:0193H         LINE#         67
+  C:0195H         LINE#         68
+  C:0199H         LINE#         70
+  C:0199H         LINE#         71
+  -------         ENDPROC       I2C_RECEIVEBYTE
+  -------         PROC          _I2C_SENDACK
+  D:0007H         SYMBOL        AckBit
+  C:01D7H         LINE#         79
+  C:01D7H         LINE#         80
+  C:01D7H         LINE#         81
+  C:01DCH         LINE#         82
+  C:01DEH         LINE#         83
+  C:01E0H         LINE#         84
+  -------         ENDPROC       _I2C_SENDACK
+  -------         PROC          I2C_RECEIVEACK
+  -------         DO            
+  D:0007H         SYMBOL        AckBit
+  -------         ENDDO         
+  C:01BFH         LINE#         91
+  C:01BFH         LINE#         92
+  C:01BFH         LINE#         94
+  C:01C1H         LINE#         95
+  C:01C3H         LINE#         96
+  C:01C8H         LINE#         97
+BL51 BANKED LINKER/LOCATER V6.22                                                      08/26/2022  08:34:52  PAGE 4
+
+
+  C:01CAH         LINE#         98
+  C:01CAH         LINE#         99
+  -------         ENDPROC       I2C_RECEIVEACK
+  -------         ENDMOD        I2C
+
+  -------         MODULE        SEND
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  C:013BH         PUBLIC        _SendString
+  C:019AH         PUBLIC        _SendByte
+  -------         PROC          _SENDBYTE
+  D:0018H         SYMBOL        Data
+  C:019AH         LINE#         11
+  C:019CH         LINE#         13
+  C:019CH         LINE#         14
+  C:019FH         LINE#         15
+  C:01A4H         LINE#         16
+  C:01A7H         LINE#         17
+  C:01ACH         LINE#         18
+  C:01AFH         LINE#         19
+  -------         ENDPROC       _SENDBYTE
+  -------         PROC          _SENDSTRING
+  D:0015H         SYMBOL        p
+  C:013BH         LINE#         27
+  C:0141H         LINE#         28
+  C:0141H         LINE#         29
+  C:014DH         LINE#         30
+  C:014DH         LINE#         31
+  C:0150H         LINE#         32
+  C:015BH         LINE#         33
+  C:015DH         LINE#         35
+  -------         ENDPROC       _SENDSTRING
+  -------         ENDMOD        SEND
+
+  -------         MODULE        ?C?COPY
+  C:00D3H         PUBLIC        ?C?COPY
+  -------         ENDMOD        ?C?COPY
+
+  -------         MODULE        ?C?CLDPTR
+  C:00F9H         PUBLIC        ?C?CLDPTR
+  -------         ENDMOD        ?C?CLDPTR
+
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?I2C_RECEIVEBYTE?I2C
+
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_I2C_SENDACK?I2C
+
+Program Size: data=26.0 xdata=0 code=497
+LINK/LOCATE RUN COMPLETE.  2 WARNING(S),  0 ERROR(S)
